@@ -36,11 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit'])) {
     body {
       background: url(2.jpg);
     }
-  
+
     .box {
       width: 74%;
       height: 160px;
-  
+
       border: solid 1px #CF0403;
       background-image: url("1.jpg");
       background-size: cover;
@@ -48,14 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit'])) {
       opacity: .9;
       border-radius: 12px;
     }
-  
+
     .boxtwo {
       background-image: url("1.jpg");
       background-size: cover;
       box-shadow: 0px 0px 15px lightgreen;
       border-radius: 12px;
     }
-  
+
     .five {
       padding: 10px 0px 10px 10px;
       margin-top: 30px;
@@ -64,11 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit'])) {
       margin-right: 5%;
       box-shadow: 0px 0px 15px lightgreen;
       font-size: 25px;
-  
+
     }
-  
+
     .five input[type="submit"] {
-  
+
       font-size: 22px;
       text-align: center;
       border: none;
@@ -150,3 +150,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit'])) {
 
 
   </div>
+
+</body>
