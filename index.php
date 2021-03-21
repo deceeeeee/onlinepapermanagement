@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit'])) {
     if ($row["type"] == "admin") {
       header("Location:admin.php");
     } else {
+      $_SESSION["user_id"] = $row['id'];
       $_SESSION["sname"] = $row["name"];
       $_SESSION["semail"] = $row["emailid"];
 
