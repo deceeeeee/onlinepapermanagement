@@ -334,7 +334,7 @@ if(isset($keywords) && count($keywords)) {
 
     </div>
 
-    <?php if(count($keywords)): ?>
+    <?php if(count($keywords) && !(isset($_POST['action']) && $action == ACTION_SEARCH)): ?>
     <div class="box-cnt">
     <h2 class="box-cnt-h">Recommended Papers</h2>
       <table class="box-table">
@@ -353,7 +353,7 @@ if(isset($keywords) && count($keywords)) {
           if (count($recommendedPaper) <= 0) :
           ?>
             <tr>
-              <td colspan="7"> <b style="color:red">Sorry! Not Found.</b> </td>
+              <td colspan="7"> <b class='text-error'>Sorry! Not Found.</b> </td>
             </tr>
             <?php else :
             foreach ($recommendedPaper as $data) :
