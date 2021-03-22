@@ -138,6 +138,10 @@ if(isset($_POST['action']) && $_POST['action'] == ACTION_GET_KEYWORD_DETAIL) {
       color: inherit;
     }
 
+    button.detail:hover {
+      text-decoration: underline;
+    }
+
     /* Statistic box */
     .statistic-box {
       display: flex;
@@ -243,7 +247,7 @@ if(isset($_POST['action']) && $_POST['action'] == ACTION_GET_KEYWORD_DETAIL) {
               $res = mysqli_query($conn, "SELECT keyword, COUNT(keyword) AS keyword_count FROM researcher_keyword GROUP BY keyword;");
               while($row = mysqli_fetch_assoc($res)):
             ?>
-              - "<?= $row['keyword'] ?>", Count: <button class='detail' value="<?= $row['keyword'] ?>"><?= $row['keyword_count'] ?></span>
+              - "<?= $row['keyword'] ?>", <button class='detail' value="<?= $row['keyword'] ?>">Count: <?= $row['keyword_count'] ?></span>
             <?php endwhile; ?>
         </div>
 
