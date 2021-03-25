@@ -16,7 +16,7 @@ $search = '';
 define('ACTION_SEARCH', 1);
 define('ACTION_FAVORITE', 2);
 
-$query = "SELECT p.*, rfp.user_id FROM paper p LEFT JOIN researcher_favorite_paper rfp ON p.id = rfp.paper_id WHERE (user_id IS NULL OR user_id = $uid)";
+$query = "SELECT p.*, rfp.user_id FROM paper p LEFT JOIN researcher_favorite_paper rfp ON p.id = rfp.paper_id";
 
 if(isset($_POST['action']) && $action = $_POST['action']) {
   switch($action) {
@@ -64,6 +64,7 @@ if($search !== '' && !empty($dataTable)) {
 
 // Recommended papers
 $res = mysqli_query($conn, "SELECT keyword FROM researcher_keyword WHERE user_id = $uid LIMIT 0, 10");
+$keywords = array();
 while ($row = mysqli_fetch_assoc($res)) {
   $keywords[] = "'%" . $row['keyword'] . "%'";
 }
@@ -324,7 +325,7 @@ if(isset($keywords) && count($keywords)) {
                   <label for="id-<?= $data['id'] ?>">
                     Favorite <i class="glyphicon glyphicon-star"></i>
                   </span>
-                  <input type="checkbox" id="id-<?= $data['id'] ?>" class='fav-checkbox' value="<?= $data['id'] ?>" <?= ($data['user_id'] ? 'checked' : '' ) ?>>
+                  <input type="checkbox" id="id-<?= $data['id'] ?>" class='fav-checkbox' value="<?= $data['id'] ?>" <?= ($data['user_id'] && $data['user_id'] == $uid ? 'checked' : '' ) ?>>
                 </td>
               </tr>
             <?php endforeach; ?>
